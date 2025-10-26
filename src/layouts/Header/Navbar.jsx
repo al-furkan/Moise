@@ -109,12 +109,12 @@ export default function MoiseNavbar() {
             <ProductCard 
               subtitle="Voor een zacht lichaam"
               title="Body Lotion"
-              imageSrc="/products/p1.png"
+              imageSrc="/Products/p1.png"
             />
             <ProductCard 
               subtitle="Voor een zachte huid"
               title="Skin Spray"
-              imageSrc="/products/p2.png"
+              imageSrc="/Products/p2.png"
             />
           </div>
         </div>
