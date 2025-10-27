@@ -26,7 +26,7 @@ export default function TrustLogos() {
 
   return (
     <section className="py-4 md:py-6">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-[1440px] mx-auto px-6">
         {/* Heading */}
         <h2 
           className="text-center text-xl md:text-[40px] mb-8 md:mb-12 font-light"
@@ -39,7 +39,7 @@ export default function TrustLogos() {
         </h2>
 
         {/* Desktop Layout - All logos visible */}
-        <div className="hidden md:flex items-center justify-center gap-6 lg:gap-8 flex-wrap">
+        <div className="hidden md:flex items-center justify-center gap-10 lg:gap-12 flex-wrap">
           {logos.map((logo, index) => (
             <div 
               key={index}
@@ -48,7 +48,7 @@ export default function TrustLogos() {
               <img
                 src={logo.src}
                 alt={logo.name}
-                className="h-13 w-auto object-contain"
+                className="h-14 w-auto object-contain"
               />
             </div>
           ))}

@@ -5,6 +5,7 @@ import React from 'react'
 import Banner from '@/components/home/Banner'
 import TrustLogos from '@/components/home/TrustLogos'
 import ProductCards from '@/components/home/ProductCards'
+import ProductSlider from '@/components/home/ProductSlider'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         <Banner />
         <TrustLogos />
         <ProductCards />
+        <ProductSlider/>
       </div>
       <Footer />
     </>

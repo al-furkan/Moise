@@ -14,7 +14,7 @@ export default function MoiseProductCards() {
 
   return (
     <section className="bg-white py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-[1440px] mx-auto px-6">
         {/* Mobile Layout - Stacked Cards */}
         <div className="md:hidden space-y-8">
           {products.map((product, index) => (
