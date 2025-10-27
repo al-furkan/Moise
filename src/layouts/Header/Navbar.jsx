@@ -78,11 +78,11 @@ export default function MoiseNavbar() {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden">
-          <div className="bg-white w-4/5 h-full p-6">
+          <div className="bg-white max-w-[790px] h-screen p-6">
             <div className="flex justify-between items-center mb-8">
                <div className="w-40 h-8 text-2xl tracking-wider">
-           <img src="/logo/logo.png" alt="" className='w-full h-full'/>
-          </div>
+                  <img src="/logo/logo.png" alt="" className='w-full h-full'/>
+                 </div>
               <button onClick={() => setIsMobileMenuOpen(false)}>
                 <X size={24} />
               </button>

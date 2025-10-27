@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 py-8 md:py-12">
+      <div className="max-w-[1440px] mx-auto px-6 py-8 md:py-12">
         {/* Mobile Layout */}
         <div className="md:hidden">
           {/* Logo */}
@@ -65,7 +65,7 @@ export default function Footer() {
 
         {/* Desktop Layout */}
         <div className="hidden md:block">
-          <div className="grid grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-2 gap-8 mb-8">
             {/* Logo Section */}
              <div className="flex items-center gap-2 mb-8">
              <div className="w-40 h-8 text-2xl tracking-wider">
@@ -73,7 +73,8 @@ export default function Footer() {
              </div>
            </div>
 
-            {/* Over Section */}
+           <div className='grid grid-cols-3 gap-8 mb-8'>
+             {/* Over Section */}
             <div className="col-span-1">
               <h3 className="font-semibold mb-4 text-sm" style={{ letterSpacing: '0.03em' }}>
                 Over
@@ -137,6 +138,7 @@ export default function Footer() {
                 </a>
               </div>
             </div>
+           </div>
           </div>
 
           {/* Copyright - Desktop */}

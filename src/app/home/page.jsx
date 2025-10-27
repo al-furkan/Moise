@@ -16,6 +16,9 @@ import CTABanner1 from '@/components/home/CTABanner1'
 import ShampooSection from '@/components/home/ShampooSection'
 import RoutineSection from '@/components/home/RoutineSection'
 import Testimonials from '@/components/home/Testimonials'
+import ComparisonTable from '@/components/home/ComparisonTable'
+import FAQSection from '@/components/home/FAQSection'
+import NewsletterSignup from '@/components/home/NewsletterSignup'
 
 const Home = () => {
   return (
@@ -36,6 +39,9 @@ const Home = () => {
         <ShampooSection />
         <RoutineSection />
         <Testimonials />
+        <ComparisonTable />
+        <FAQSection />
+        <NewsletterSignup />
       </div>
       <Footer />
     </>
