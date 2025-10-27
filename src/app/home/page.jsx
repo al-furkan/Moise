@@ -6,6 +6,16 @@ import Banner from '@/components/home/Banner'
 import TrustLogos from '@/components/home/TrustLogos'
 import ProductCards from '@/components/home/ProductCards'
 import ProductSlider from '@/components/home/ProductSlider'
+import QuizSection from '@/components/home/QuizSection'
+import StorySection from '@/components/home/StorySection'
+import HeroSection1 from '@/components/home/HeroSection1'
+import ProductDetail from '@/components/home/ProductDetail'
+import CTABanner from '@/components/home/CTABanner'
+import ProductDetail1 from '@/components/home/ProductDetail1'
+import CTABanner1 from '@/components/home/CTABanner1'
+import ShampooSection from '@/components/home/ShampooSection'
+import RoutineSection from '@/components/home/RoutineSection'
+import Testimonials from '@/components/home/Testimonials'
 
 const Home = () => {
   return (
@@ -16,6 +26,16 @@ const Home = () => {
         <TrustLogos />
         <ProductCards />
         <ProductSlider/>
+        <QuizSection />
+        <StorySection />
+        <HeroSection1 />
+        <ProductDetail />
+        <CTABanner />
+        <ProductDetail1 />
+        <CTABanner1 />
+        <ShampooSection />
+        <RoutineSection />
+        <Testimonials />
       </div>
       <Footer />
     </>

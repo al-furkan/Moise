@@ -2,7 +2,7 @@ export default function Banner() {
   return (
     <section className="relative w-full overflow-hidden">
       {/* Desktop Banner - Hidden on mobile */}
-      <div className="hidden md:block relative w-full h-[640px]">
+      <div className="hidden md:block relative w-full h-auto">
         <img
           src="/home/bg1.png"
           alt="MOISE Banner Desktop"
@@ -11,7 +11,7 @@ export default function Banner() {
       </div>
 
       {/* Mobile Banner - Hidden on desktop */}
-      <div className="md:hidden relative w-full h-[634px] mb-10">
+      <div className="md:hidden relative w-full h-auto">
         <img
           src="/home/bgm1.png"
           alt="MOISE Banner Mobile"
