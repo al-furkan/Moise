@@ -3,13 +3,13 @@ import React from 'react'
 const HeroSection = () => {
   return (
     <div>
-     <section className="bg-[#f5f1ed]">
-        <div className="max-w-7xl mx-auto">
+     <section className="">
+        <div className="max-w-[1440px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-0">
             {/* Image */}
             <div className="relative h-[400px] lg:h-[600px]">
               <img
-                src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&h=800&fit=crop"
+                src="/about/img1.png"
                 alt="Moeder met baby"
                 className="w-full h-full object-cover"
               />

@@ -5,6 +5,7 @@ import React from 'react'
 import Banner from '@/components/AboutUS/Banner'
 import HeaderTittle from '@/components/AboutUS/HeaderTittle'
 import HeroSection from '@/components/AboutUS/HeroSection'
+import NewsletterSignup from '@/components/AboutUS/NewsletterSignup'
 
 const AboutUs = () => {
   return (
@@ -14,6 +15,7 @@ const AboutUs = () => {
          <Banner />
          <HeaderTittle />
          <HeroSection />
+         <NewsletterSignup />
       </div>
       <Footer />
     </>
