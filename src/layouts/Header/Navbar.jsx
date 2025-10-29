@@ -77,7 +77,7 @@ export default function MoiseNavbar() {
 
         {/* Center Navigation Links */}
         <div className="flex items-center gap-8">
-          <NavLink text="LUIERS" />
+          <NavLink text="LUIERS" href="/productdetails" />
           <NavLink text="DOEKJES" />
           <NavLink text="SHAMPOO" />
           <NavLink text="HUIDVERZORGING" hasDropdown />
@@ -107,6 +107,7 @@ export default function MoiseNavbar() {
               <ChevronDown size={16} />
             </button>
             <span className="text-sm">NL</span>
+            <img src="/icons/NL.png" alt="NL"  className='w-5 h-5'/>
           </div>
         </div>
       </nav>
@@ -153,7 +154,7 @@ export default function MoiseNavbar() {
               </button>
             </div>
             <div className="flex flex-col gap-6">
-              <MobileNavLink text="LUIERS" />
+              <MobileNavLink text="LUIERS" href="/productdetails" />
               <MobileNavLink text="DOEKJES" />
               <MobileNavLink text="SHAMPOO" />
               <MobileNavLink text="HUIDVERZORGING" hasDropdown />
@@ -214,7 +215,7 @@ export default function MoiseNavbar() {
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
                       className="bg-orange-600 h-2 rounded-full transition-all"
-                      style={{ width: `${(subtotal / freeShippingThreshold) * 100}%` }}
+                      style={{ width: `${Math.min(100, (subtotal / freeShippingThreshold) * 100)}%` }}
                     />
                   </div>
                 </div>
@@ -338,7 +339,31 @@ export default function MoiseNavbar() {
   );
 }
 
-function NavLink({ text, hasDropdown }) {
+function NavLink({ text, hasDropdown, href }) {
+  const content = (
+    <span
+      className="flex items-center gap-1 hover:text-gray-600 transition-colors"
+      style={{
+        fontSize: '14px',
+        lineHeight: '100%',
+        letterSpacing: '0.03em',
+        textTransform: 'uppercase',
+        fontWeight: 400
+      }}
+    >
+      {text}
+      {hasDropdown && <ChevronDown size={16} />}
+    </span>
+  );
+
+  if (href) {
+    return (
+      <Link href={href}>
+        {content}
+      </Link>
+    );
+  }
+
   return (
     <button 
       className="flex items-center gap-1 hover:text-gray-600 transition-colors"
@@ -356,7 +381,31 @@ function NavLink({ text, hasDropdown }) {
   );
 }
 
-function MobileNavLink({ text, hasDropdown }) {
+function MobileNavLink({ text, hasDropdown, href }) {
+  const content = (
+    <span 
+      className="flex items-center justify-between text-left hover:text-gray-600 transition-colors"
+      style={{
+        fontSize: '14px',
+        lineHeight: '100%',
+        letterSpacing: '0.03em',
+        textTransform: 'uppercase',
+        fontWeight: 400
+      }}
+    >
+      {text}
+      {hasDropdown && <ChevronDown size={16} />}
+    </span>
+  );
+
+  if (href) {
+    return (
+      <Link href={href}>
+        {content}
+      </Link>
+    );
+  }
+
   return (
     <button 
       className="flex items-center justify-between text-left hover:text-gray-600 transition-colors"

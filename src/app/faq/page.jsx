@@ -2,16 +2,17 @@
 import Header from '@/layouts/Header'
 import Footer from '@/layouts/Footer'
 import React from 'react'
-import ContactForm from '@/components/contact/ContactForm'
-import FAQSection from '@/components/home/FAQSection'
+import FAQSection from '@/components/faq/FAQSection'
+import NewsletterSignup from '@/components/faq/NewsletterSignup'
 
 const FAQ = () => {
   return (
      <>
       <div className='max-w-[1440px] mx-auto'>
        <Header />
-       <ContactForm />
-       <FAQSection />  
+       <FAQSection />
+       <NewsletterSignup />
+         
       </div>
       <Footer />
     </>
