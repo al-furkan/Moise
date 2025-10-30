@@ -240,12 +240,12 @@ export default function Navbar() {
 
               <div className="border-t pt-6 mt-6">
                 <div className="grid grid-cols-2 gap-4 text-sm">
-                  <Link href="/aboutus" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">Over</Link>
-                  <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">FAQ</Link>
-                  <Link href="/home" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">Waarom Moise?</Link>
-                  <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">Contact</Link>
-                  <Link href="/productdetails" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">Onze luiers</Link>
-                  <Link href="/terms" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">Algemene voorwaarden</Link>
+                  <Link href="/aboutus" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-[#A95A21] transition-colors">Over</Link>
+                  <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-[#A95A21] transition-colors">FAQ</Link>
+                  <Link href="/home" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-[#A95A21] transition-colors">Waarom Moise?</Link>
+                  <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-[#A95A21] transition-colors">Contact</Link>
+                  <Link href="/productdetails" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-[#A95A21] transition-colors">Onze luiers</Link>
+                  <Link href="/terms" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-[#A95A21] transition-colors">Algemene voorwaarden</Link>
                 </div>
               </div>
             </div>
