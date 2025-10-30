@@ -142,9 +142,9 @@ export default function Navbar() {
         </div>
 
         {/* Right */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           <Link href="/myaccount" className="p-2 hover:bg-gray-100 rounded">
-            <User size={20} />
+           <img src="/icons/user.png" alt=""  className=" w-6 h-6"/>
           </Link>
 
           <button
@@ -153,7 +153,7 @@ export default function Navbar() {
           >
             <ShoppingCart size={20} />
             {cartItems.length > 0 && (
-              <span className="absolute -top-1 -right-1 bg-orange-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-[#A95A21] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 {cartItems.length}
               </span>
             )}
@@ -192,7 +192,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <Link href="/myaccount" className="p-2 hover:bg-gray-100 rounded">
-            <User size={20} />
+             <img src="/icons/user.png" alt=""  className=" w-6 h-6"/>
           </Link>
 
           <button
@@ -201,7 +201,7 @@ export default function Navbar() {
           >
             <ShoppingCart size={20} />
             {cartItems.length > 0 && (
-              <span className="absolute -top-1 -right-1 bg-orange-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-[#A95A21] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 {cartItems.length}
               </span>
             )}
