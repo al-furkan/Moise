@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function ProductSlider() {
@@ -144,9 +145,11 @@ function ProductCard({ product }) {
       {/* Image Section */}
       <div className="flex-1 flex items-center justify-center p-4 md:p-5">
         <div className="w-full max-w-[280px] h-[212px] md:h-[350px] aspect-square">
-          <img
-            src={product.image}
+          <Image
+            src={`/${product.image}`}
             alt={product.title}
+            width={350}
+            height={350}
             className="w-full h-full object-contain"
           />
         </div>

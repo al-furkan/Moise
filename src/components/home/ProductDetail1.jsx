@@ -1,4 +1,5 @@
 import { Leaf, Droplet, Sparkles, TestTube } from 'lucide-react';
+import Image from 'next/image';
 
 export default function ProductDetail1() {
   const features = [
@@ -26,9 +27,11 @@ export default function ProductDetail1() {
       <div className="md:hidden">
         {/* Product Image */}
         <div className="w-full h-[334px] bg-gradient-to-b from-amber-100 to-amber-50">
-          <img
+          <Image
             src="/Products/p7.png"
             alt="Body Lotion Product"
+            width={1200}
+            height={334}
             className="w-full h-full object-cover"
           />
         </div>
@@ -58,7 +61,7 @@ export default function ProductDetail1() {
             {features.map((feature, index) => (
               <div key={index} className="flex items-start gap-3">
                 <div className="flex-shrink-0 text-gray-600 mt-1">
-                  <img src={feature.icon} alt="" className='w-5 h-5'/>
+                  <Image src={feature.icon} alt="" width={20} height={20} className='w-5 h-5'/>
                 </div>
                 <p className="text-sm text-gray-800 leading-relaxed">
                   {feature.text}
@@ -78,9 +81,11 @@ export default function ProductDetail1() {
       <div className="hidden md:grid md:grid-cols-2 min-h-[640px]">
            {/* Image Side */}
         <div className="relative bg-gradient-to-b from-amber-100 to-amber-50">
-          <img
+          <Image
               src="/Products/p6.png"
              alt="Body Lotion Product"
+             width={1200}
+             height={640}
              className="w-full h-full object-cover"
           />
         </div>
@@ -109,7 +114,7 @@ export default function ProductDetail1() {
             {features.map((feature, index) => (
               <div key={index} className="flex items-start gap-3">
                 <div className="flex-shrink-0 text-gray-600">
-                 <img src={feature.icon} alt="" className='w-5 h-5'/>
+                 <Image src={feature.icon} alt="" width={20} height={20} className='w-5 h-5'/>
                 </div>
                 <p className="text-sm text-gray-800 leading-relaxed">
                   {feature.text}

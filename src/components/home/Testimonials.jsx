@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Instagram } from 'lucide-react';
 
 export default function Testimonials() {
@@ -75,9 +76,11 @@ export default function Testimonials() {
                       maxWidth: '85%'
                     }}
                   >
-                    <img
-                      src={item.image}
+                    <Image
+                      src={item.image.startsWith('http') ? item.image : `/${item.image}`}
                       alt={`Customer testimonial ${index + 1}`}
+                      width={600}
+                      height={700}
                       className="w-full h-[400px] object-cover"
                     />
                     {/* Instagram Badge */}
@@ -112,9 +115,11 @@ export default function Testimonials() {
                   }}
                 >
                   <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow cursor-pointer hover:scale-105 transition-transform duration-300">
-                    <img
-                      src={item.image}
+                    <Image
+                      src={item.image.startsWith('http') ? item.image : `/${item.image}`}
                       alt={`Customer testimonial ${index + 1}`}
+                      width={600}
+                      height={700}
                       className="w-full h-[350px] object-cover"
                     />
                     {/* Instagram Badge */}

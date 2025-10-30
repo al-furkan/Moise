@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, Check } from 'lucide-react';
+import Image from 'next/image';
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState('');
@@ -23,14 +24,17 @@ export default function NewsletterSignup() {
   };
 
   return (
-    <section className="relative min-h-auto flex items-center justify-center overflow-hidden mt-10">
+    <section className="relative min-h-auto flex items-center justify-center overflow-hidden mt-10 bg-white text-black">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/50 z-10"></div>
-        <img
+        <Image
           src="/about/bgn.png"
           alt="Baby feet"
-          className="w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
       </div>
 

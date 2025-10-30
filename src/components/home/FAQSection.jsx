@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { ChevronDown, Plus, Minus } from 'lucide-react';
 
 export default function FAQSection() {
@@ -73,10 +74,13 @@ export default function FAQSection() {
 
           {/* Right Side - Image */}
           <div className="relative h-full min-h-[600px]">
-            <img
+            <Image
               src="/home/img8.png"
               alt="Mother with baby"
+              width={1200}
+              height={800}
               className="w-full h-full object-cover rounded-lg"
+              priority
             />
           </div>
         </div>
@@ -85,10 +89,13 @@ export default function FAQSection() {
         <div className="lg:hidden">
           {/* Image */}
           <div className="relative w-full h-[400px] mb-8">
-            <img
+            <Image
               src="/home/img8.png"
               alt="Mother with baby"
+              width={768}
+              height={512}
               className="w-full h-full object-cover rounded-lg"
+              priority
             />
           </div>
 

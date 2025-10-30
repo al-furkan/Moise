@@ -1,6 +1,7 @@
 "use client";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const RecommendationsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -88,7 +89,7 @@ const RecommendationsSection = () => {
   const gap = getGap();
 
   return (
-    <section className="max-w-[410px] sm:max-w-[600px] mx-auto mt-6 sm:mt-8 lg:mt-12 bg-[#F5F3F0] rounded-xl sm:rounded-2xl p-3 sm:p-5 lg:p-6">
+    <section className="max-w-[410px] sm:max-w-[600px] mx-auto mt-6 sm:mt-8 lg:mt-12 bg-white text-black rounded-xl sm:rounded-2xl p-3 sm:p-5 lg:p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-4 sm:mb-5 lg:mb-6">
         <h2 className="text-base sm:text-lg lg:text-2xl font-bold text-gray-900">
@@ -136,10 +137,13 @@ const RecommendationsSection = () => {
               <div className="flex items-start gap-3 lg:gap-4">
                 {/* Product Image */}
                 <div className="flex-shrink-0">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.name}
+                    width={96}
+                    height={96}
                     className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-cover rounded-lg sm:rounded-xl"
+                    unoptimized={item.image.startsWith('http')}
                   />
                 </div>
                 

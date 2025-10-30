@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function ComparisonTable() {
   const brands = [
@@ -70,7 +71,7 @@ export default function ComparisonTable() {
       return (
         <div className="flex justify-center items-center gap-1 text-sm text-gray-600">
           <div className="w-4 h-4 flex items-center justify-center">
-           <img src="/icons/gedeeltelijk.png" alt="Gedeeltelijk" className='w-5 h-5' />
+            <Image src="/icons/gedeeltelijk.png" alt="Gedeeltelijk" width={20} height={20} className='w-5 h-5' />
           </div>
           <span>Gedeeltelijk</span>
         </div>
@@ -97,7 +98,7 @@ export default function ComparisonTable() {
                 {brands.map((brand, idx) => (
                   <th key={idx} className={`py-6 px-4 text-center ${brand.highlight ? 'bg-white' : ''}`}>
                     <div className={`flex justify-center items-center ${brand.highlight ? 'font-serif text-2xl text-amber-900' : ''}`}>
-                      <img src={brand.logo} alt={brand.name} className='max-w-44 h-8'/>
+                      <Image src={`/${brand.logo}`} alt={brand.name} width={176} height={32} className='max-w-44 h-8 object-contain'/>
                     </div>
                   </th>
                 ))}
@@ -132,7 +133,7 @@ export default function ComparisonTable() {
                   {brands.map((brand, idx) => (
                     <th key={idx} className={`py-4 px-6 text-center border-b border-gray-200 min-w-[140px] ${brand.highlight ? 'bg-amber-50' : 'bg-gray-50'}`}>
                       <div className={`flex justify-center items-center ${brand.highlight ? 'font-serif text-lg text-amber-900' : ''}`}>
-                         <img src={brand.logo} alt={brand.name}/>
+                        <Image src={`/${brand.logo}`} alt={brand.name} width={120} height={24} className='object-contain'/>
                       </div>
                     </th>
                   ))}

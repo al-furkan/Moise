@@ -1,17 +1,21 @@
 import React from 'react'
+import Image from 'next/image'
 
 const HeroSection = () => {
   return (
     <div>
-     <section className="">
+     <section className="bg-white text-black">
         <div className="max-w-[1440px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-0">
             {/* Image */}
             <div className="relative h-[400px] lg:h-[600px]">
-              <img
+              <Image
                 src="/about/img1.png"
                 alt="Moeder met baby"
-                className="w-full h-full object-cover"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
             </div>
 

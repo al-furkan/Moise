@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { ArrowLeft, RotateCw } from 'lucide-react';
 
 export default function OrderDetails() {
@@ -258,8 +259,8 @@ export default function OrderDetails() {
               {selectedOrder.items.map((item, idx) => (
                 <div key={idx} className="bg-white rounded-xl p-6 border border-gray-200">
                   <div className="flex gap-6">
-                    <div className="w-40 h-40 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center">
-                      <span className="text-sm text-gray-400"><img src={item.image} alt="" /></span>
+                <div className="w-40 h-40 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden">
+                  <Image src={item.image} alt="" width={160} height={160} className="object-contain w-full h-full" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-medium mb-3">{item.name}</h3>
@@ -374,7 +375,7 @@ function OrderCard({ order, onView }) {
       <div className="flex gap-3 mb-4">
         {displayItems.map((item, idx) => (
           <div key={idx} className="w-16 h-16 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center">
-            <span className="text-xs text-gray-400"><img src={item.image} alt="" /></span>
+            <Image src={item.image} alt="" width={64} height={64} className="object-contain w-full h-full" />
           </div>
         ))}
         {order.items.length === 1 && (

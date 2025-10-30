@@ -1,20 +1,28 @@
+import Image from 'next/image';
+
 export default function CTABanner1() {
   return (
     <section className="relative w-full overflow-hidden">
       {/* Desktop Banner - Hidden on mobile */}
       <div className="hidden md:block relative w-full h-auto">
-        <img
+        <Image
           src="/home/cta1banner.png"
           alt="MOISE Banner Desktop"
+          width={1920}
+          height={800}
+          priority
           className="w-full h-full object-cover"
         />
       </div>
 
       {/* Mobile Banner - Hidden on desktop */}
       <div className="md:hidden relative w-full h-auto">
-        <img
+        <Image
           src="/home/cta1bannerm.png"
           alt="MOISE Banner Mobile"
+          width={768}
+          height={600}
+          priority
           className="w-full h-full object-cover"
         />
       </div>

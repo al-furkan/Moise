@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function MoiseStorySection() {
   return (
     <section className="bg-white py-16 md:py-24">
@@ -17,9 +19,11 @@ export default function MoiseStorySection() {
           {/* Left Image - Aligned left on all devices */}
           <div className="flex justify-start">
            <div className="w-full max-w-[200px] md:max-w-[300px] lg:max-w-[425px] max-h-[250px] md:max-h-[300px] lg:max-h-[555px]">
-              <img
+              <Image
                 src="/home/img1.png"
                 alt="Mother with baby"
+                width={425}
+                height={555}
                 className="w-full h-auto rounded object-cover shadow-lg"
               />
             </div>
@@ -28,9 +32,11 @@ export default function MoiseStorySection() {
           {/* Right Image - Aligned right, offset down on all devices */}
           <div className="flex justify-end">
             <div className="w-full max-w-[200px] md:max-w-[300px] lg:max-w-[425px] max-h-[250px] md:max-h-[300px] lg:max-h-[555px]">
-              <img
+              <Image
                 src="/home/img2.png"
                 alt="Baby care moment"
+                width={425}
+                height={555}
                 className="w-full h-auto rounded object-cover shadow-lg"
               />
             </div>

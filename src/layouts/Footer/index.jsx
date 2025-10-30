@@ -1,5 +1,6 @@
 import { Instagram, Facebook } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -10,7 +11,9 @@ export default function Footer() {
           {/* Logo */}
           <div className="flex items-center gap-2 mb-8">
              <div className="w-40 h-8 text-2xl tracking-wider">
-             <Link href="/">  <img src="/logo/logo.png" alt="" className='w-full h-full'/> </Link>   
+             <Link href="/">
+               <Image src="/logo/logo.png" alt="Moise logo" width={160} height={32} className='w-full h-full object-contain' />
+             </Link>   
              </div>
           </div>
 
@@ -74,7 +77,9 @@ export default function Footer() {
             {/* Logo Section */}
              <div className="flex items-center gap-2 mb-8">
              <div className="w-40 h-8 text-2xl tracking-wider">
-                  <Link href="/">  <img src="/logo/logo.png" alt="" className='w-full h-full'/> </Link>   
+                  <Link href="/">
+                    <Image src="/logo/logo.png" alt="Moise logo" width={160} height={32} className='w-full h-full object-contain' />
+                  </Link>   
              </div>
            </div>
 

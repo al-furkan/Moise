@@ -1,4 +1,5 @@
 import { ShoppingBag, RefreshCw, Truck } from 'lucide-react';
+import Image from 'next/image';
 
 export default function QuizSection() {
   const features = [
@@ -36,7 +37,7 @@ export default function QuizSection() {
             {features.map((feature, index) => (
               <div key={index} className="flex items-center gap-3 text-[#A74A10]">
                 <div className="flex-shrink-0">
-                  <img src={feature.icon} alt="" className='w-5 h-5'/>
+                  <Image src={`/${feature.icon}`} alt="" width={20} height={20} className='w-5 h-5'/>
                 </div>
                 <p className="text-sm text-gray-800">
                   {feature.text}
@@ -50,7 +51,7 @@ export default function QuizSection() {
             {features.map((feature, index) => (
               <div key={index} className="flex items-center gap-3 text-[#A74A10]">
                 <div className="flex-shrink-0">
-                  <img src={feature.icon} alt="" className='w-5 h-5'/>
+                  <Image src={`/${feature.icon}`} alt="" width={20} height={20} className='w-5 h-5'/>
                 </div>
                 <p className="text-base text-gray-800">
                   {feature.text}

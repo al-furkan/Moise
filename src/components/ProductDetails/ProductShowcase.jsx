@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 export default function ProductShowcase() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -31,7 +32,7 @@ export default function ProductShowcase() {
   };
 
   return (
-    <div className="min-h-auto bg-gradient-to-b from-gray-50 to-white py-8 md:py-16 px-4">
+    <div className="min-h-auto bg-white text-black py-8 md:py-16 px-4">
       <div className="max-w-[1440px] mx-auto">
         {/* Title */}
         <h1 className="text-3xl md:text-5xl font-light mb-8 md:mb-16 text-gray-800 text-center">
@@ -44,7 +45,7 @@ export default function ProductShowcase() {
           <div className="relative mb-8">
             <div className="w-64 h-64 flex flex-col items-center justify-start pt-6 overflow-hidden relative">
              <div className="w-[247px] h-[247px]  flex flex-col items-center justify-start pt-8 overflow-hidden ">                 
-                  <img src="/Products/pd1.png" alt="pd1"  className='w-full h-full'/>
+                  <Image src="/Products/pd1.png" alt="pd1" width={247} height={247} className='w-full h-full'/>
                  </div>
             </div>
           </div>
@@ -62,7 +63,7 @@ export default function ProductShowcase() {
                     key={index}
                     className="w-full flex-shrink-0 flex flex-col items-center text-center px-8"
                   >
-                    <div className="mb-4"><img src={feature.icon}  alt="" /></div>
+                    <div className="mb-4"><Image src={feature.icon}  alt="" width={64} height={64} /></div>
                     <p className="text-gray-700 text-sm leading-relaxed min-h-[60px]">
                       {feature.text}
                     </p>
@@ -97,7 +98,7 @@ export default function ProductShowcase() {
                 {/* Left Top Feature */}
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0">
-                    <img src={features[0].icon}  alt="" /> 
+                    <Image src={features[0].icon}  alt="" width={64} height={64} /> 
                   </div>
                   <div className="h-px flex-grow bg-gray-200"></div>
                 </div>
@@ -105,7 +106,7 @@ export default function ProductShowcase() {
                 {/* Left Bottom Feature */}
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0">
-                    <img src={features[2].icon}  alt="" />
+                    <Image src={features[2].icon}  alt="" width={64} height={64} />
                   </div>
                   <div className="h-px flex-grow bg-gray-200"></div>
                 </div>
@@ -114,7 +115,7 @@ export default function ProductShowcase() {
               {/* Center Product */}
               <div className="flex justify-center">
                 <div className="w-[564px] h-[564px]  flex flex-col items-center justify-start pt-8 overflow-hidden ">                 
-                  <img src="/Products/pd1.png" alt="pd1"  className='w-full h-full'/>
+                  <Image src="/Products/pd1.png" alt="pd1" width={564} height={564}  className='w-full h-full'/>
                  </div>
               </div>
 
@@ -124,7 +125,7 @@ export default function ProductShowcase() {
                 <div className="flex items-center gap-4">
                   <div className="h-px flex-grow bg-gray-200"></div>
                   <div className="flex-shrink-0">
-                   <img src={features[1].icon}  alt="" /> 
+                   <Image src={features[1].icon}  alt="" width={64} height={64} /> 
                   </div>
                 </div>
 
@@ -132,7 +133,7 @@ export default function ProductShowcase() {
                 <div className="flex items-center gap-4">
                   <div className="h-px flex-grow bg-gray-200"></div>
                   <div className="flex-shrink-0">
-                   <img src={features[3].icon}  alt="" /> 
+                   <Image src={features[3].icon}  alt="" width={64} height={64} /> 
                   </div>
                 </div>
               </div>

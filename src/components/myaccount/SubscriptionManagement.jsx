@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { X, ArrowLeft, RefreshCw, AlertCircle } from 'lucide-react';
 
 const SubscriptionManagement = () => {
@@ -36,9 +37,9 @@ const SubscriptionManagement = () => {
         <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-200">
           <h2 className="text-lg font-semibold mb-4">Mijn abonnement</h2>
           
-          {subscriptionItems.map((item) => (
+            {subscriptionItems.map((item) => (
             <div key={item.id} className="flex gap-3 mb-4 pb-4 border-b last:border-b-0 last:mb-0 last:pb-0">
-              <img src={item.image} alt={item.name} className="w-20 h-20 object-cover rounded-lg" />
+              <Image src={item.image} alt={item.name} width={80} height={80} className="w-20 h-20 object-cover rounded-lg" />
               <div className="flex-1">
                 <h3 className="text-sm font-semibold mb-1">{item.name}</h3>
                 {item.size && <p className="text-xs text-gray-600 mb-1">{item.size}</p>}
@@ -104,7 +105,7 @@ const SubscriptionManagement = () => {
 
             {subscriptionItems.map((item) => (
               <div key={item.id} className="flex gap-4 mb-4 pb-4 border-b last:border-b-0 last:mb-0 last:pb-0">
-                <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-lg" />
+                <Image src={item.image} alt={item.name} width={96} height={96} className="w-24 h-24 object-cover rounded-lg" />
                 <div className="flex-1">
                   <h3 className="text-base font-semibold mb-1">{item.name}</h3>
                   {item.size && <p className="text-sm text-gray-600 mb-1">{item.size}</p>}
@@ -165,7 +166,7 @@ const SubscriptionManagement = () => {
               {subscriptionItems.map((item) => (
                 <div key={item.id} className="border border-gray-200 rounded-xl p-4">
                   <div className="flex gap-3 mb-4">
-                    <img src={item.image} alt={item.name} className="w-20 h-20 object-cover rounded-lg" />
+                    <Image src={item.image} alt={item.name} width={80} height={80} className="w-20 h-20 object-cover rounded-lg" />
                     <div className="flex-1">
                       <h3 className="text-sm font-semibold mb-1">{item.name}</h3>
                       {item.size && <p className="text-xs text-gray-600 mb-1">{item.size}</p>}
@@ -306,7 +307,7 @@ const SubscriptionManagement = () => {
               </div>
 
               <div className="flex gap-3 p-4 border border-gray-200 rounded-xl">
-                <img src="/Products/p1.png" alt="Baby Diapers" className="w-20 h-20 object-cover rounded-lg" />
+                <Image src="/Products/p1.png" alt="Baby Diapers" width={80} height={80} className="w-20 h-20 object-cover rounded-lg" />
                 <div className="flex-1">
                   <h3 className="text-sm font-semibold mb-1">Baby Diapers</h3>
                   <p className="text-sm font-bold mb-2">€11.95</p>

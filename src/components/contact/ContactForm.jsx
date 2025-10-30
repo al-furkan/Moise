@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { ChevronDown, Check } from 'lucide-react';
 
 const ContactForm = () => {
@@ -92,7 +93,7 @@ const ContactForm = () => {
                     onClick={() => setShowCountryDropdown(!showCountryDropdown)}
                     className="flex items-center gap-2 px-3 py-3 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors"
                   >
-                    <span className="text-xl"><img src="/icons/NL.png" alt="NL"  className='w-5 h-5'/></span>
+                    <span className="text-xl"><Image src="/icons/NL.png" alt="NL" width={20} height={20} className='w-5 h-5'/></span>
                     <ChevronDown className="w-4 h-4 text-gray-600" />
                   </button>
                   
@@ -216,7 +217,7 @@ const ContactForm = () => {
                         onClick={() => setShowCountryDropdown(!showCountryDropdown)}
                         className="flex items-center gap-2 px-3 py-3.5 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors"
                       >
-                        <span className="text-xl"><img src="/icons/NL.png" alt="NL"  className='w-5 h-5'/></span>
+                        <span className="text-xl"><Image src="/icons/NL.png" alt="NL" width={20} height={20} className='w-5 h-5'/></span>
                         <ChevronDown className="w-4 h-4 text-gray-600" />
                       </button>
                       

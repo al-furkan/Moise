@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function ShampooSection() {
   return (
     <section className="bg-[#F3EFEC] py-12 md:py-20">
@@ -16,9 +18,11 @@ export default function ShampooSection() {
 
           {/* Product Image */}
           <div className="mb-8">
-            <img
-              src="Products/p8.png"
+            <Image
+              src="/Products/p8.png"
               alt="Moise 2-in-1 Shampoo & Shower Gel"
+              width={800}
+              height={800}
               className="w-full h-auto rounded object-cover"
             />
           </div>
@@ -50,9 +54,11 @@ export default function ShampooSection() {
 
           {/* Product Image */}
           <div className="max-w-2xl mx-auto">
-            <img
-              src="Products/p8.png"
+            <Image
+              src="/Products/p8.png"
               alt="Moise 2-in-1 Shampoo & Shower Gel"
+              width={1000}
+              height={1000}
               className="w-full h-auto rounded object-cover shadow-lg"
             />
           </div>

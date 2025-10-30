@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { X, Plus, Minus, Trash2 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const ShoppingCards = () => {
   // Define constants first
@@ -70,7 +71,7 @@ const ShoppingCards = () => {
             onClick={() => setIsCartOpen(false)}
           />
 
-          <div className="fixed right-0 top-0 h-full w-full md:w-[420px] bg-white z-50 shadow-2xl overflow-y-auto">
+          <div className="fixed right-0 top-0 h-full w-full md:w-[420px] bg-white text-black z-50 shadow-2xl overflow-y-auto">
             <div className="flex flex-col h-full">
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b">
@@ -105,11 +106,14 @@ const ShoppingCards = () => {
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
                 {cartItems.map((item) => (
                   <div key={item.id} className="flex gap-4">
-                    <div className="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center">
-                      <img
+                    <div className="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden">
+                      <Image
                         src={item.image}
                         alt={item.name}
+                        width={80}
+                        height={80}
                         className="object-contain w-20 h-20"
+                        priority={false}
                       />
                     </div>
 

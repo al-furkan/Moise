@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Play,  } from 'lucide-react';
+import Image from 'next/image';
 const LeftSide = () => {
      const [selectedImage, setSelectedImage] = useState(0);
     const images = [
@@ -11,7 +12,7 @@ const LeftSide = () => {
   ];
 
   return (
-    <div> {/* Left Side - Images */}
+    <div className="bg-white text-black"> {/* Left Side - Images */}
           <div className="flex flex-col lg:flex-row gap-3 lg:gap-10">
             {/* Thumbnail Images - Left Side */}
             <div className="flex lg:flex-col gap-2 order-2 lg:order-1 overflow-x-auto lg:overflow-visible">
@@ -23,7 +24,7 @@ const LeftSide = () => {
                     selectedImage === idx ? 'border-[#A0734F]' : 'border-gray-200'
                   }`}
                 >
-                  <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                  <Image src={img} alt={`Thumbnail ${idx + 1}`} width={56} height={56} className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
@@ -32,16 +33,18 @@ const LeftSide = () => {
             <div className="flex-1 relative bg-gray-50 rounded  order-1 lg:order-2">
               {/* Product Image */}
               <div className="aspect-square flex items-center justify-center">
-                <img 
-                  src={images[selectedImage]} 
-                  alt="Moise Luier" 
+                <Image
+                  src={images[selectedImage]}
+                  alt="Moise Luier"
+                  width={800}
+                  height={800}
                   className="max-w-full max-h-full object-contain"
                 />
               </div>
 
               {/* Video Thumbnail */}
               <div className="absolute bottom-4 right-4 lg:bottom-6 lg:right-6 w-16 h-16 lg:w-25 lg:h-25 rounded-lg overflow-hidden cursor-pointer shadow-lg">
-                <img src="/Products/vimg.png" alt="Video" className="w-full h-full object-cover" />
+                <Image src="/Products/vimg.png" alt="Video" width={100} height={100} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                   <Play className="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="white" />
                 </div>

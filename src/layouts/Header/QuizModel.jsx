@@ -1,5 +1,6 @@
 import { X,  Minus, Plus, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from "react";
+import Image from "next/image";
 
 
 const QuizModal = ({setIsQuizOpen}) => {
@@ -123,7 +124,7 @@ const [quizStep, setQuizStep] = useState(1);
                     }`}
                   >
                     <div className="w-auto h-40 bg-gray-100 rounded mb-3 flex items-center justify-center overflow-hidden">
-                      <img src="/Products/p5.png" alt="Luier" className="w-full h-full object-cover" />
+                      <Image src="/Products/p5.png" alt="Luier" width={160} height={160} className="w-full h-full object-cover" />
                     </div>
                     <p className="font-medium text-sm">Moise Luier</p>
                   </button>
@@ -137,7 +138,7 @@ const [quizStep, setQuizStep] = useState(1);
                     }`}
                   >
                     <div className="w-full h-32 bg-gray-100 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                      <img src="/Products/p8.png" alt="Luierbroekje" className="w-full h-full object-cover" />
+                      <Image src="/Products/p8.png" alt="Luierbroekje" width={128} height={128} className="w-full h-full object-cover" />
                     </div>
                     <p className="font-medium text-sm">Moise Luierbroekje</p>
                   </button>
@@ -185,14 +186,14 @@ const [quizStep, setQuizStep] = useState(1);
                   className="w-full  md:w-[200px] lg:mx-auto bg-[#A95A21] text-white py-3 rounded-lg hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium transition-colors"
                 >
                   VOLGENDE
-                   <img src="/icons/icon1.png" alt="" className='w-4 h-3' />
+                   <Image src="/icons/icon1.png" alt="" width={16} height={12} className='w-4 h-3' />
                 </button>
 
                 <button 
                   onClick={resetQuiz}
                   className="w-full text-sm text-gray-600 flex items-center justify-center gap-2 hover:text-gray-900 transition-colors py-2"
                 >
-                   <img src="/icons/icon2.png" alt="" className='w-4 h-3' />
+                   <Image src="/icons/icon2.png" alt="" width={16} height={12} className='w-4 h-3' />
                   Opnieuw beginnen
                 </button>
                 </div>
@@ -229,7 +230,7 @@ const [quizStep, setQuizStep] = useState(1);
                   className="w-full lg:w-[200px] mx-auto bg-[#A95A21] text-white py-3 rounded-lg hover:bg-orange-700 flex items-center justify-center gap-2 font-medium transition-colors"
                 >
                   VOLGENDE
-                 <img src="/icons/icon1.png" alt="" className='w-4 h-3' />
+                 <Image src="/icons/icon1.png" alt="" width={16} height={12} className='w-4 h-3' />
                 </button>
 
                 <button 
@@ -293,7 +294,7 @@ const [quizStep, setQuizStep] = useState(1);
                   onClick={resetQuiz}
                   className="w-full text-sm text-gray-600 flex items-center justify-center gap-2 hover:text-gray-900 transition-colors py-2"
                 >
-                   <img src="/icons/icon2.png" alt="" className='w-4 h-3' />
+                   <Image src="/icons/icon2.png" alt="" width={16} height={12} className='w-4 h-3' />
                   Opnieuw beginnen
                 </button>
               </div>
@@ -318,8 +319,8 @@ const [quizStep, setQuizStep] = useState(1);
                       <p className="text-xs text-gray-600">Aantal 3 · (31 ml/pack) totaly</p>
                     </div>
                     
-                    <div className="w-full h-auto bg-gray-50 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                      <img src="/Products/pdc.png" alt="Product" className="w-45 h-45 object-cover" />
+                      <div className="w-full h-auto bg-gray-50 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+                      <Image src="/Products/pdc.png" alt="Product" width={180} height={180} className="w-45 h-45 object-cover" />
                     </div>
 
                     <p className="font-medium mb-1">Moise Luier</p>
@@ -339,7 +340,7 @@ const [quizStep, setQuizStep] = useState(1);
                       </div>
                       
                       <div className="w-full h-auto bg-gray-50 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                        <img src="/Products/pdc.png" alt="Product" className="w-45 h-45 object-cover" />
+                        <Image src="/Products/pdc.png" alt="Product" width={180} height={180} className="w-45 h-45 object-cover" />
                       </div>
 
                       <p className="font-medium mb-1">Moise Luier</p>
@@ -358,7 +359,7 @@ const [quizStep, setQuizStep] = useState(1);
                   <div className="space-y-3">
                     <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
                       <div className="w-16 h-16 bg-gray-100 rounded flex-shrink-0 overflow-hidden">
-                        <img src="/Products/p5.png" alt="Wipes" className="w-full h-full object-cover" />
+                        <Image src="/Products/p5.png" alt="Wipes" width={64} height={64} className="w-full h-full object-cover" />
                       </div>
                       <div className="flex-1">
                         <p className="text-sm font-medium">Maak je Baby Pack compleet</p>
@@ -371,7 +372,7 @@ const [quizStep, setQuizStep] = useState(1);
 
                     <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
                       <div className="w-16 h-16 bg-gray-100 rounded flex-shrink-0 overflow-hidden">
-                        <img src="/Products/p8.png" alt="Lotion" className="w-full h-full object-cover" />
+                        <Image src="/Products/p8.png" alt="Lotion" width={64} height={64} className="w-full h-full object-cover" />
                       </div>
                       <div className="flex-1">
                         <p className="text-sm font-medium">Moise Body Lotion</p>
@@ -410,7 +411,7 @@ const [quizStep, setQuizStep] = useState(1);
                   className="w-full lg:w-[300px] mx-auto bg-[#A95A21] text-white py-3 rounded-lg hover:bg-orange-700 flex items-center justify-center gap-2 font-medium transition-colors"
                 >
                   START JE ABONNEMENT
-                 <img src="/icons/icon1.png" alt="" className='w-4 h-3' />
+                 <Image src="/icons/icon1.png" alt="" width={16} height={12} className='w-4 h-3' />
                 </button>
 
                 <div className="bg-orange-50 border border-orange-200 rounded-full p-3 text-xs text-center text-gray-700">
@@ -421,7 +422,7 @@ const [quizStep, setQuizStep] = useState(1);
                   onClick={resetQuiz}
                   className="w-full text-sm text-gray-600 flex items-center justify-center gap-2 hover:text-gray-900 transition-colors py-2"
                 >
-                  <img src="/icons/icon2.png" alt="" className='w-4 h-3' />
+                  <Image src="/icons/icon2.png" alt="" width={16} height={12} className='w-4 h-3' />
                   Opnieuw beginnen
                 </button>
               </div>

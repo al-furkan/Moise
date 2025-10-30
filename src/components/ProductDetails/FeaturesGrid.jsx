@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const FeaturesGrid = () => {
   const features = [
@@ -21,7 +22,7 @@ const FeaturesGrid = () => {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-white text-black">
       {/* Features Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8">
         {features.map((feature, index) => (
@@ -30,9 +31,11 @@ const FeaturesGrid = () => {
             className="flex items-start gap-3 bg-white rounded-lg p-2 sm:p-3"
           >
             <div className="flex-shrink-0 text-gray-600 mt-1">
-              <img
+              <Image
                 src={feature.icon}
                 alt="feature icon"
+                width={24}
+                height={24}
                 className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
               />
             </div>

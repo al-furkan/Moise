@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function MoiseProductCards() {
   const products = [
     {
@@ -79,9 +81,11 @@ function ProductCard({ product }) {
       {/* Image Section */}
       <div className="flex-1 flex items-center justify-center p-4 md:p-5">
         <div className="w-full max-w-[500px] max-h-[250px] md:max-h-[350px] aspect-square">
-          <img
+          <Image
             src={product.image}
             alt={product.title}
+            width={500}
+            height={350}
             className="w-full h-full object-contain"
           />
         </div>

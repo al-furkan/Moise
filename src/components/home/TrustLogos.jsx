@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function TrustLogos() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -45,9 +46,11 @@ export default function TrustLogos() {
               key={index}
               className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             >
-              <img
+              <Image
                 src={logo.src}
                 alt={logo.name}
+                width={120}
+                height={56}
                 className="h-14 w-auto object-contain"
               />
             </div>
@@ -69,9 +72,11 @@ export default function TrustLogos() {
                         key={index}
                         className="grayscale opacity-60 flex-1 flex justify-center"
                       >
-                        <img
+                        <Image
                           src={logo.src}
                           alt={logo.name}
+                          width={100}
+                          height={40}
                           className="h-10 w-auto object-contain max-w-[100px]"
                         />
                       </div>

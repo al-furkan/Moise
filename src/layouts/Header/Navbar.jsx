@@ -9,6 +9,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import ProductCard from "./ProductCard";
 import QuizModal from "./QuizModel";
 import ShoppingCard from "./ShoppingCard";
@@ -110,7 +111,7 @@ export default function Navbar() {
   return (
     <div>
       {/* Desktop Navbar */}
-      <nav className="hidden md:flex items-center justify-between px-6 py-4 border-b border-gray-200">
+      <nav className="bg-white text-black hidden md:flex items-center justify-between px-6 py-4 border-b border-gray-200">
         {/* Left */}
         <div className="flex items-center gap-6">
           <button
@@ -121,16 +122,19 @@ export default function Navbar() {
           </button>
 
           <Link href="/" className="block w-40 h-8">
-            <img
+            <Image
               src="/logo/logo.png"
               alt="Moise logo"
+              width={160}
+              height={32}
               className="w-full h-full object-contain"
+              priority
             />
           </Link>
         </div>
 
         {/* Center Links */}
-        <div className="flex items-center gap-8 text-sm">
+        <div className="text-black flex items-center gap-8 text-sm">
           <NavLink text="LUIERS" href="/productdetails" />
           <NavLink text="DOEKJES" href="/productdetails" />
           <NavLink text="SHAMPOO" href="/productdetails" />
@@ -144,7 +148,7 @@ export default function Navbar() {
         {/* Right */}
         <div className="flex items-center gap-6">
           <Link href="/myaccount" className="p-2 hover:bg-gray-100 rounded">
-           <img src="/icons/user.png" alt=""  className=" w-6 h-6"/>
+            <Image src="/icons/user.png" alt="User" width={24} height={24} className=" w-6 h-6" />
           </Link>
 
           <button
@@ -169,13 +173,13 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <ChevronDown size={16} />
             <span className="text-sm">NL</span>
-            <img src="/icons/NL.png" alt="NL" className="w-5 h-5" />
+            <Image src="/icons/NL.png" alt="NL" width={20} height={20} className="w-5 h-5" />
           </div>
         </div>
       </nav>
 
       {/* Mobile Navbar */}
-      <nav className="md:hidden flex items-center justify-between px-4 py-3 border-b border-gray-200">
+      <nav className="bg-white text-black md:hidden flex items-center justify-between px-4 py-3 border-b border-gray-200">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="p-2"
@@ -183,16 +187,19 @@ export default function Navbar() {
           <Menu size={24} />
         </button>
         <Link href="/" className="block w-32 h-8">
-          <img
+          <Image
             src="/logo/logo.png"
             alt="Moise logo"
+            width={128}
+            height={32}
             className="w-full h-full object-contain"
+            priority
           />
         </Link>
 
         <div className="flex items-center gap-2">
           <Link href="/myaccount" className="p-2 hover:bg-gray-100 rounded">
-             <img src="/icons/user.png" alt=""  className=" w-6 h-6"/>
+            <Image src="/icons/user.png" alt="User" width={24} height={24} className=" w-6 h-6" />
           </Link>
 
           <button
@@ -255,7 +262,7 @@ export default function Navbar() {
 
       {/* Product Section */}
       {isProductMenuOpen && (
-        <div className="hidden md:block bg-white py-8 px-6 animate-fadeIn border-b">
+        <div className="hidden md:block bg-white text-black py-8 px-6 animate-fadeIn border-b">
           <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <ProductCard
               subtitle="Voor een zacht lichaam"
@@ -282,7 +289,7 @@ export default function Navbar() {
 
 function NavLink({ text, hasDropdown, href, onClick }) {
   const content = (
-    <span className="flex items-center gap-1 hover:text-gray-600 transition-colors cursor-pointer text-[14px] uppercase tracking-wider">
+    <span className="text-black flex items-center gap-1 hover:text-gray-600 transition-colors cursor-pointer text-[14px] uppercase tracking-wider">
       {text}
       {hasDropdown && <ChevronDown size={16} />}
     </span>
@@ -291,7 +298,7 @@ function NavLink({ text, hasDropdown, href, onClick }) {
   // If there's an onClick handler, use a button
   if (onClick) {
     return (
-      <button onClick={onClick} className="flex items-center gap-1">
+      <button onClick={onClick} className="text-black flex items-center gap-1">
         {content}
       </button>
     );
@@ -312,7 +319,7 @@ function MobileNavLink({ text, href, onClick }) {
   };
 
   const content = (
-    <span className="flex items-center justify-between text-left hover:text-[#A95A21] transition-colors w-full py-2 text-[48px]">
+    <span className="text-black flex items-center justify-between text-left hover:text-[#A95A21] transition-colors w-full py-2 text-[48px]">
       {text}
       <ChevronRight size={20} />
     </span>
