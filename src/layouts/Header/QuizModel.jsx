@@ -97,7 +97,7 @@ const [quizStep, setQuizStep] = useState(1);
           <div className="px-6 pt-6 pb-2">
             <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-orange-600 transition-all duration-300"
+                className="h-full bg-[#A95A21] transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -113,17 +113,17 @@ const [quizStep, setQuizStep] = useState(1);
                   <p className="text-sm text-gray-600">Kies het type luier</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className=" max-w-100 grid grid-cols-2 gap-4 mx-auto">
                   <button
                     onClick={() => setQuizData({...quizData, diaperType: 'luier'})}
                     className={`p-4 border-2 rounded-xl text-center transition-all ${
                       quizData.diaperType === 'luier' 
-                        ? 'border-orange-600 bg-orange-50' 
+                        ? 'border-[#A95A21] bg-white' 
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
-                    <div className="w-full h-32 bg-gray-100 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                      <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=200" alt="Luier" className="w-full h-full object-cover" />
+                    <div className="w-auto h-40 bg-gray-100 rounded mb-3 flex items-center justify-center overflow-hidden">
+                      <img src="/Products/p5.png" alt="Luier" className="w-full h-full object-cover" />
                     </div>
                     <p className="font-medium text-sm">Moise Luier</p>
                   </button>
@@ -132,12 +132,12 @@ const [quizStep, setQuizStep] = useState(1);
                     onClick={() => setQuizData({...quizData, diaperType: 'luierbroekje'})}
                     className={`p-4 border-2 rounded-xl text-center transition-all ${
                       quizData.diaperType === 'luierbroekje' 
-                        ? 'border-orange-600 bg-orange-50' 
+                        ? 'border-[#A95A21] bg-white' 
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
                     <div className="w-full h-32 bg-gray-100 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                      <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=200" alt="Luierbroekje" className="w-full h-full object-cover" />
+                      <img src="/Products/p8.png" alt="Luierbroekje" className="w-full h-full object-cover" />
                     </div>
                     <p className="font-medium text-sm">Moise Luierbroekje</p>
                   </button>
@@ -163,7 +163,7 @@ const [quizStep, setQuizStep] = useState(1);
                 </div>
 
                 <div>
-                  <p className="text-sm text-gray-600 mb-3">Vertel ons de namen van je kinderen (optioneel)</p>
+                  <p className="text-sm text-gray-600 mb-3 text-center">Vertel ons de namen van je kinderen (optioneel)</p>
                   <div className="grid grid-cols-2 gap-3">
                     {Array.from({length: quizData.numChildren}).map((_, idx) => (
                       <input
@@ -178,25 +178,24 @@ const [quizStep, setQuizStep] = useState(1);
                   </div>
                 </div>
 
-                <button
+                <div className="w-full mx-auto">
+                   <button
                   onClick={nextQuizStep}
                   disabled={!quizData.diaperType}
-                  className="w-full bg-orange-600 text-white py-4 rounded-lg hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium transition-colors"
+                  className="w-full  md:w-[200px] lg:mx-auto bg-[#A95A21] text-white py-3 rounded-lg hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium transition-colors"
                 >
                   VOLGENDE
-                  <ChevronRight size={20} />
+                   <img src="/icons/icon1.png" alt="" className='w-4 h-3' />
                 </button>
 
                 <button 
                   onClick={resetQuiz}
                   className="w-full text-sm text-gray-600 flex items-center justify-center gap-2 hover:text-gray-900 transition-colors py-2"
                 >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.5"/>
-                    <path d="M8 5v3l2 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                  </svg>
+                   <img src="/icons/icon2.png" alt="" className='w-4 h-3' />
                   Opnieuw beginnen
                 </button>
+                </div>
               </div>
             )}
 
@@ -227,20 +226,17 @@ const [quizStep, setQuizStep] = useState(1);
 
                 <button
                   onClick={nextQuizStep}
-                  className="w-full bg-orange-600 text-white py-4 rounded-lg hover:bg-orange-700 flex items-center justify-center gap-2 font-medium transition-colors"
+                  className="w-full lg:w-[200px] mx-auto bg-[#A95A21] text-white py-3 rounded-lg hover:bg-orange-700 flex items-center justify-center gap-2 font-medium transition-colors"
                 >
                   VOLGENDE
-                  <ChevronRight size={20} />
+                 <img src="/icons/icon1.png" alt="" className='w-4 h-3' />
                 </button>
 
                 <button 
                   onClick={resetQuiz}
                   className="w-full text-sm text-gray-600 flex items-center justify-center gap-2 hover:text-gray-900 transition-colors py-2"
                 >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.5"/>
-                    <path d="M8 5v3l2 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                  </svg>
+                  <img src="/icons/icon2.png" alt="" className='w-4 h-3' />
                   Opnieuw beginnen
                 </button>
               </div>
@@ -261,7 +257,7 @@ const [quizStep, setQuizStep] = useState(1);
                     }}
                     className={`p-6 border-2 rounded-xl text-center transition-all ${
                       quizData.changeFrequency === '4x' 
-                        ? 'border-orange-600 bg-orange-50' 
+                        ? 'border-[#A95A21] bg-orange-50' 
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
@@ -275,7 +271,7 @@ const [quizStep, setQuizStep] = useState(1);
                     }}
                     className={`p-6 border-2 rounded-xl text-center transition-all ${
                       quizData.changeFrequency === '4x+' 
-                        ? 'border-orange-600 bg-orange-50' 
+                        ? 'border-[#A95A21] bg-orange-50' 
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
@@ -287,20 +283,17 @@ const [quizStep, setQuizStep] = useState(1);
                 <button
                   onClick={nextQuizStep}
                   disabled={!quizData.changeFrequency}
-                  className="w-full bg-orange-600 text-white py-4 rounded-lg hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium transition-colors"
+                  className="w-full lg:w-[200px] mx-auto bg-[#A95A21] text-white py-3 rounded-lg hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium transition-colors"
                 >
                   VOLGENDE
-                  <ChevronRight size={20} />
+                 <img src="/icons/icon1.png" alt="" className='w-4 h-3' />
                 </button>
 
                 <button 
                   onClick={resetQuiz}
                   className="w-full text-sm text-gray-600 flex items-center justify-center gap-2 hover:text-gray-900 transition-colors py-2"
                 >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.5"/>
-                    <path d="M8 5v3l2 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                  </svg>
+                   <img src="/icons/icon2.png" alt="" className='w-4 h-3' />
                   Opnieuw beginnen
                 </button>
               </div>
@@ -316,7 +309,7 @@ const [quizStep, setQuizStep] = useState(1);
                   </p>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="max-w-150 grid grid-cols-2 gap-4 mx-auto">
                   {/* Child 1 */}
                   <div className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
                     <div className="mb-3">
@@ -325,13 +318,13 @@ const [quizStep, setQuizStep] = useState(1);
                       <p className="text-xs text-gray-600">Aantal 3 · (31 ml/pack) totaly</p>
                     </div>
                     
-                    <div className="w-full h-32 bg-gray-50 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                      <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=200" alt="Product" className="w-full h-full object-cover" />
+                    <div className="w-full h-auto bg-gray-50 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+                      <img src="/Products/pdc.png" alt="Product" className="w-45 h-45 object-cover" />
                     </div>
 
                     <p className="font-medium mb-1">Moise Luier</p>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-xl font-bold text-orange-600">€10.00</span>
+                      <span className="text-xl font-bold text-[#A95A21]">€10.00</span>
                       <span className="text-sm text-gray-400 line-through">€11.95</span>
                     </div>
                   </div>
@@ -345,13 +338,13 @@ const [quizStep, setQuizStep] = useState(1);
                         <p className="text-xs text-gray-600">Aantal 3 · (31 ml/pack) totaly</p>
                       </div>
                       
-                      <div className="w-full h-32 bg-gray-50 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=200" alt="Product" className="w-full h-full object-cover" />
+                      <div className="w-full h-auto bg-gray-50 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+                        <img src="/Products/pdc.png" alt="Product" className="w-45 h-45 object-cover" />
                       </div>
 
                       <p className="font-medium mb-1">Moise Luier</p>
                       <div className="flex items-baseline gap-2">
-                        <span className="text-xl font-bold text-orange-600">€10.00</span>
+                        <span className="text-xl font-bold text-[#A95A21]">€10.00</span>
                         <span className="text-sm text-gray-400 line-through">€11.95</span>
                       </div>
                     </div>
@@ -365,30 +358,30 @@ const [quizStep, setQuizStep] = useState(1);
                   <div className="space-y-3">
                     <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
                       <div className="w-16 h-16 bg-gray-100 rounded flex-shrink-0 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1631730486572-226d1f595b68?w=100" alt="Wipes" className="w-full h-full object-cover" />
+                        <img src="/Products/p5.png" alt="Wipes" className="w-full h-full object-cover" />
                       </div>
                       <div className="flex-1">
                         <p className="text-sm font-medium">Maak je Baby Pack compleet</p>
-                        <p className="text-sm text-orange-600 font-medium">€2.95</p>
+                        <p className="text-sm text-[#A95A21] font-medium">€2.95</p>
                       </div>
-                      <button className="px-4 py-2 bg-orange-600 text-white text-xs rounded-lg hover:bg-orange-700 transition-colors whitespace-nowrap">
+                      <button className="px-4 py-2 bg-[#A95A21] text-white text-xs rounded-lg hover:bg-orange-700 transition-colors whitespace-nowrap">
                         TOEVOEGEN
                       </button>
                     </div>
 
                     <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
                       <div className="w-16 h-16 bg-gray-100 rounded flex-shrink-0 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=100" alt="Lotion" className="w-full h-full object-cover" />
+                        <img src="/Products/p8.png" alt="Lotion" className="w-full h-full object-cover" />
                       </div>
                       <div className="flex-1">
                         <p className="text-sm font-medium">Moise Body Lotion</p>
-                        <p className="text-sm text-orange-600 font-medium">€10.95</p>
+                        <p className="text-sm text-[#A95A21] font-medium">€10.95</p>
                       </div>
-                      <button className="px-4 py-2 bg-orange-600 text-white text-xs rounded-lg hover:bg-orange-700 transition-colors whitespace-nowrap">
+                      <button className="px-4 py-2 bg-[#A95A21] text-white text-xs rounded-lg hover:bg-orange-700 transition-colors whitespace-nowrap">
                         TOEVOEGEN
                       </button>
                     </div>
-                  </div>
+                  </div> 
                 </div>
 
                 {/* Pricing */}
@@ -405,7 +398,7 @@ const [quizStep, setQuizStep] = useState(1);
                   )}
                   <div className="flex justify-between font-bold text-base pt-2 border-t border-gray-300">
                     <span>Totaal</span>
-                    <span className="text-orange-600">€{quizData.numChildren * 30}/maand</span>
+                    <span className="text-[#A95A21]">€{quizData.numChildren * 30}/maand</span>
                   </div>
                 </div>
 
@@ -414,13 +407,13 @@ const [quizStep, setQuizStep] = useState(1);
                     closeQuiz();
                     alert('Abonnement wordt toegevoegd aan winkelwagen!');
                   }}
-                  className="w-full bg-orange-600 text-white py-4 rounded-lg hover:bg-orange-700 flex items-center justify-center gap-2 font-medium transition-colors"
+                  className="w-full lg:w-[300px] mx-auto bg-[#A95A21] text-white py-3 rounded-lg hover:bg-orange-700 flex items-center justify-center gap-2 font-medium transition-colors"
                 >
                   START JE ABONNEMENT
-                  <ChevronRight size={20} />
+                 <img src="/icons/icon1.png" alt="" className='w-4 h-3' />
                 </button>
 
-                <div className="bg-orange-50 border border-orange-200 rounded-lg p-3 text-xs text-center text-gray-700">
+                <div className="bg-orange-50 border border-orange-200 rounded-full p-3 text-xs text-center text-gray-700">
                   ⚠️ Je kunt je abonnement op elk moment pauzeren of opzeggen.
                 </div>
 
@@ -428,10 +421,7 @@ const [quizStep, setQuizStep] = useState(1);
                   onClick={resetQuiz}
                   className="w-full text-sm text-gray-600 flex items-center justify-center gap-2 hover:text-gray-900 transition-colors py-2"
                 >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.5"/>
-                    <path d="M8 5v3l2 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                  </svg>
+                  <img src="/icons/icon2.png" alt="" className='w-4 h-3' />
                   Opnieuw beginnen
                 </button>
               </div>
