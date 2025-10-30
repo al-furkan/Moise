@@ -7,7 +7,7 @@ import OrderDetails from './OrderDetails';
 import SubscriptionManagement from './SubscriptionManagement';
 
 export default function AccountSettings() {
-  const [activeTab, setActiveTab] = useState('account');
+  const [activeTab, setActiveTab] = useState('Mijnaccount');
   const [activeModal, setActiveModal] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
@@ -346,7 +346,7 @@ function Modal({ title, children, onClose }) {
         onClick={onClose}
       />
       <div className="fixed inset-0 z-50 overflow-y-auto">
-        <div className="flex min-h-auto items-center justify-center p-4">
+        <div className="flex min-h-screen items-center justify-center p-4">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 md:p-8 relative">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-normal text-gray-900">{title}</h2>

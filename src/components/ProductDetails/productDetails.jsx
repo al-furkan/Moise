@@ -41,7 +41,7 @@ export default function ProductDetails() {
              <QuantitySelector />   
 
             {/* Plan Selection */}
-            <PlanSelection />
+             <PlanSelection />
 
             {/* Add to Cart Button */}
              <CartButton />

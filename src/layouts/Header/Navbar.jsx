@@ -1,15 +1,37 @@
-import React, { useState } from 'react';
-import { Menu, X, Search, User, ShoppingCart, ChevronDown, Minus, Plus, Trash2 } from 'lucide-react';
-import ProductCard from './ProductCard';
-import Link from 'next/link';
+"use client";
+import React, { useState } from "react";
+import {
+  Menu,
+  X,
+  User,
+  ShoppingCart,
+  ChevronDown,
+  ChevronRight,
+} from "lucide-react";
+import Link from "next/link";
+import ProductCard from "./ProductCard";
+import QuizModal from "./QuizModel";
+import ShoppingCard from "./ShoppingCard";
 
-
-export default function MoiseNavbar() {
+export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  
-  // Cart state
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
+
+  const [quizStep, setQuizStep] = useState(1);
+  const [quizData, setQuizData] = useState({
+    diaperType: null,
+    numChildren: 2,
+    childNames: ["", ""],
+    childWeights: [
+      { gender: "", weight: "" },
+      { gender: "", weight: "" },
+    ],
+    changeFrequency: null,
+    recommendations: [],
+  });
+
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
@@ -18,28 +40,28 @@ export default function MoiseNavbar() {
       size: "Maat: 1 | 3-5 kg",
       price: 11.95,
       quantity: 1,
-      image: "/products/diaper.png",
-      subscription: "Eenmalige bestelling"
+      image: "/Products/diaper.png",
+      subscription: "Eenmalige bestelling",
     },
     {
       id: 2,
       name: "Moise Luierdoekjes",
       description: "4 pakketten",
-      price: 11.80,
+      price: 11.8,
       quantity: 4,
       image: "/products/wipes.png",
-      subscription: "Eenmalige bestelling"
-    }
+      subscription: "Eenmalige bestelling",
+    },
   ]);
 
-  const [discountCode, setDiscountCode] = useState("DAGQQRJGAS24J2KK");
-  const discountAmount = 4.00;
-  const shippingCost = 6.00;
-  const freeShippingThreshold = 26.00;
+  const [discountCode] = useState("DAGQQRJGAS24J2KK");
+  const discountAmount = 4.0;
+  const shippingCost = 6.0;
+  const freeShippingThreshold = 26.0;
 
   const updateQuantity = (id, delta) => {
-    setCartItems(items =>
-      items.map(item =>
+    setCartItems((items) =>
+      items.map((item) =>
         item.id === id
           ? { ...item, quantity: Math.max(1, item.quantity + delta) }
           : item
@@ -48,47 +70,84 @@ export default function MoiseNavbar() {
   };
 
   const removeItem = (id) => {
-    setCartItems(items => items.filter(item => item.id !== id));
+    setCartItems((items) => items.filter((item) => item.id !== id));
   };
 
-  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const currentShippingCost = subtotal >= freeShippingThreshold ? 0 : shippingCost;
+  const subtotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+  const currentShippingCost =
+    subtotal >= freeShippingThreshold ? 0 : shippingCost;
   const total = subtotal + currentShippingCost - discountAmount;
-  const amountToFreeShipping = Math.max(0, freeShippingThreshold - subtotal);
+
+  // Quiz
+  const resetQuiz = () => {
+    setQuizStep(1);
+    setQuizData({
+      diaperType: null,
+      numChildren: 2,
+      childNames: ["", ""],
+      childWeights: [
+        { gender: "", weight: "" },
+        { gender: "", weight: "" },
+      ],
+      changeFrequency: null,
+      recommendations: [],
+    });
+  };
+
+  const openQuiz = () => {
+    resetQuiz();
+    setIsQuizOpen(true);
+  };
+
+  const closeQuiz = () => {
+    setIsQuizOpen(false);
+    resetQuiz();
+  };
 
   return (
     <div>
-      {/* Desktop & Tablet Navigation */}
+      {/* Desktop Navbar */}
       <nav className="hidden md:flex items-center justify-between px-6 py-4 border-b border-gray-200">
-        {/* Left Section */}
+        {/* Left */}
         <div className="flex items-center gap-6">
-          <button 
-            onClick={() => setIsProductMenuOpen(!isProductMenuOpen)}
+          <button
+             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="p-2 hover:bg-gray-100 rounded transition-colors"
           >
-            {isProductMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          <div className="text-2xl tracking-wider font-light">
-             <Link href="/" className="block w-40 h-8 text-2xl tracking-wider">
-              <img src="/logo/logo.png" alt="Moise logo" className='w-full h-full'/>
-            </Link>
-          </div>
+
+          <Link href="/" className="block w-40 h-8">
+            <img
+              src="/logo/logo.png"
+              alt="Moise logo"
+              className="w-full h-full object-contain"
+            />
+          </Link>
         </div>
 
-        {/* Center Navigation Links */}
-        <div className="flex items-center gap-8">
+        {/* Center Links */}
+        <div className="flex items-center gap-8 text-sm">
           <NavLink text="LUIERS" href="/productdetails" />
-          <NavLink text="DOEKJES" />
-          <NavLink text="SHAMPOO" />
-          <NavLink text="HUIDVERZORGING" hasDropdown />
+          <NavLink text="DOEKJES" href="/productdetails" />
+          <NavLink text="SHAMPOO" href="/productdetails" />
+          <NavLink 
+            text="HUIDVERZORGING" 
+            onClick={() => setIsProductMenuOpen(!isProductMenuOpen)} 
+            hasDropdown 
+          />
         </div>
 
-        {/* Right Section */}
+        {/* Right */}
         <div className="flex items-center gap-4">
-          <button className="p-2 hover:bg-gray-100 rounded">
+          <Link href="/myaccount" className="p-2 hover:bg-gray-100 rounded">
             <User size={20} />
-          </button>
-          <button 
+          </Link>
+
+          <button
             onClick={() => setIsCartOpen(true)}
             className="p-2 hover:bg-gray-100 rounded relative"
           >
@@ -99,37 +158,46 @@ export default function MoiseNavbar() {
               </span>
             )}
           </button>
-          <button className="bg-[#A95A21] text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors text-sm tracking-widest">
+
+          <button
+            onClick={openQuiz}
+            className="bg-[#A95A21] text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors text-sm tracking-widest"
+          >
             SHOP NU
           </button>
+
           <div className="flex items-center gap-2">
-            <button>
-              <ChevronDown size={16} />
-            </button>
+            <ChevronDown size={16} />
             <span className="text-sm">NL</span>
-            <img src="/icons/NL.png" alt="NL"  className='w-5 h-5'/>
+            <img src="/icons/NL.png" alt="NL" className="w-5 h-5" />
           </div>
         </div>
       </nav>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navbar */}
       <nav className="md:hidden flex items-center justify-between px-4 py-3 border-b border-gray-200">
-        <button 
+        <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="p-2"
         >
           <Menu size={24} />
         </button>
-        <Link href="/" className="block w-40 h-8 text-2xl tracking-wider">
-          <img src="/logo/logo.png" alt="Moise logo" className='w-full h-full'/>
+        <Link href="/" className="block w-32 h-8">
+          <img
+            src="/logo/logo.png"
+            alt="Moise logo"
+            className="w-full h-full object-contain"
+          />
         </Link>
+
         <div className="flex items-center gap-2">
-          <button className="p-2">
-            <Search size={20} />
-          </button>
-          <button 
+          <Link href="/myaccount" className="p-2 hover:bg-gray-100 rounded">
+            <User size={20} />
+          </Link>
+
+          <button
             onClick={() => setIsCartOpen(true)}
-            className="p-2 relative"
+            className="p-2 relative hover:bg-gray-100 rounded"
           >
             <ShoppingCart size={20} />
             {cartItems.length > 0 && (
@@ -141,43 +209,60 @@ export default function MoiseNavbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden">
-          <div className="bg-white max-w-[790px] h-screen p-6">
+        <div className="fixed inset-0 bg-black/50 z-50 ">
+          <div className="bg-white max-w-[430px] w-full h-screen p-6 overflow-y-auto">
             <div className="flex justify-between items-center mb-8">
-              <div className="text-xl tracking-wider font-light">
-                MOISE
-              </div>
               <button onClick={() => setIsMobileMenuOpen(false)}>
                 <X size={24} />
               </button>
             </div>
-            <div className="flex flex-col gap-6">
-              <MobileNavLink text="LUIERS" href="/productdetails" />
-              <MobileNavLink text="DOEKJES" />
-              <MobileNavLink text="SHAMPOO" />
-              <MobileNavLink text="HUIDVERZORGING" hasDropdown />
-              <div className="border-t pt-6 mt-6">
-                <button className="bg-[#A95A21] text-white w-full px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors text-sm tracking-widest">
-                    SHOP NU
+
+            <div className="flex flex-col gap-1">
+              <MobileNavLink text="Luiers" href="/productdetails" onClick={() => setIsMobileMenuOpen(false)} />
+              <MobileNavLink text="Luierdoekjes" href="/productdetails" onClick={() => setIsMobileMenuOpen(false)} />
+              <MobileNavLink text="Shampoo" href="/productdetails" onClick={() => setIsMobileMenuOpen(false)} />
+              <MobileNavLink text="Bodylotion" href="/productdetails" onClick={() => setIsMobileMenuOpen(false)} />
+              <MobileNavLink text="Luierspray" href="/productdetails" onClick={() => setIsMobileMenuOpen(false)} />
+
+              <div className="pt-6 mt-20 space-y-4">
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    openQuiz();
+                  }}
+                  className="bg-[#A95A21] text-white w-full px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors text-sm tracking-widest"
+                >
+                  SHOP NU
                 </button>
+              </div>
+
+              <div className="border-t pt-6 mt-6">
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <Link href="/aboutus" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">Over</Link>
+                  <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">FAQ</Link>
+                  <Link href="/home" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">Waarom Moise?</Link>
+                  <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">Contact</Link>
+                  <Link href="/productdetails" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">Onze luiers</Link>
+                  <Link href="/terms" onClick={() => setIsMobileMenuOpen(false)} className="text-left hover:text-orange-600 transition-colors">Algemene voorwaarden</Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Product Section - Shows/Hides on Menu Click */}
+      {/* Product Section */}
       {isProductMenuOpen && (
-        <div className="hidden md:block bg-white py-8 px-6 animate-fadeIn">
-          <div className="max-w-[1440px] mx-auto grid grid-cols-3 gap-2 items-left">
+        <div className="hidden md:block bg-white py-8 px-6 animate-fadeIn border-b">
+          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <ProductCard
               subtitle="Voor een zacht lichaam"
               title="Body Lotion"
               imageSrc="/Products/p1.png"
             />
-            <ProductCard 
+            <ProductCard
               subtitle="Voor een zachte huid"
               title="Skin Spray"
               imageSrc="/Products/p2.png"
@@ -186,239 +271,64 @@ export default function MoiseNavbar() {
         </div>
       )}
 
+      {/* Quiz Modal */}
+      {isQuizOpen && <QuizModal setIsQuizOpen={setIsQuizOpen} />}
+
       {/* Shopping Cart Sidebar */}
-      {isCartOpen && (
-        <>
-          {/* Overlay */}
-          <div 
-            className="fixed inset-0 bg-transparent bg-opacity-50 z-50"
-            onClick={() => setIsCartOpen(false)}
-          />
-          
-          {/* Cart Sidebar */}
-          <div className="fixed right-0 top-0 h-full w-full md:w-[420px] bg-white z-50 shadow-2xl overflow-y-auto">
-            <div className="flex flex-col h-full">
-              {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b">
-                <h2 className="text-xl font-normal">Mijn winkelwagen</h2>
-                <button onClick={() => setIsCartOpen(false)}>
-                  <X size={24} />
-                </button>
-              </div>
-
-              {/* Free Shipping Progress */}
-              {amountToFreeShipping > 0 && (
-                <div className="px-6 py-4 bg-gray-50">
-                  <p className="text-sm text-gray-700 mb-2">
-                    Voeg €{amountToFreeShipping.toFixed(2)} toe voor gratis express-verzending
-                  </p>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div 
-                      className="bg-orange-600 h-2 rounded-full transition-all"
-                      style={{ width: `${Math.min(100, (subtotal / freeShippingThreshold) * 100)}%` }}
-                    />
-                  </div>
-                </div>
-              )}
-
-              {/* Cart Items */}
-              <div className="flex-1 overflow-y-auto p-6 space-y-6">
-                {cartItems.map((item) => (
-                  <div key={item.id} className="flex gap-4">
-                    {/* Product Image */}
-                    <div className="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center">
-                      <span className="text-xs text-gray-400">Image</span>
-                    </div>
-
-                    {/* Product Details */}
-                    <div className="flex-1">
-                      <h3 className="font-normal text-lg mb-1">{item.name}</h3>
-                      {item.type && (
-                        <p className="text-sm text-gray-600">Type: {item.type}</p>
-                      )}
-                      {item.size && (
-                        <p className="text-sm text-gray-600">{item.size}</p>
-                      )}
-                      {item.description && (
-                        <p className="text-sm text-gray-600">{item.description}</p>
-                      )}
-                      <p className="text-lg font-normal mt-2">€{item.price.toFixed(2)}</p>
-                      <p className="text-xs text-gray-500">{item.subscription}</p>
-
-                      {/* Quantity Controls */}
-                      <div className="flex items-center gap-3 mt-3">
-                        <div className="flex items-center border rounded-lg">
-                          <button
-                            onClick={() => updateQuantity(item.id, -1)}
-                            className="p-2 hover:bg-gray-100"
-                          >
-                            <Minus size={16} />
-                          </button>
-                          <span className="px-4 text-center min-w-[40px]">{item.quantity}</span>
-                          <button
-                            onClick={() => updateQuantity(item.id, 1)}
-                            className="p-2 hover:bg-gray-100"
-                          >
-                            <Plus size={16} />
-                          </button>
-                        </div>
-                        <button
-                          onClick={() => removeItem(item.id)}
-                          className="p-2 hover:bg-gray-100 rounded"
-                        >
-                          <Trash2 size={18} />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Footer */}
-              <div className="border-t p-6 space-y-4">
-                {/* Discount Code */}
-                <div className="space-y-2">
-                  <input
-                    type="text"
-                    placeholder="Kortingscode invoeren"
-                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  />
-                  <button className="w-full py-3 border-2 border-gray-900 rounded-lg font-normal hover:bg-gray-50 transition-colors">
-                    Toepassen
-                  </button>
-                </div>
-
-                {/* Price Summary */}
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span>Subtotaal</span>
-                    <span>€{subtotal.toFixed(2)}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Verzendkosten</span>
-                    <span>€{currentShippingCost.toFixed(2)}</span>
-                  </div>
-                  {discountCode && (
-                    <div className="flex justify-between text-orange-600">
-                      <span className="flex items-center gap-2">
-                        {discountCode}
-                        <button className="text-gray-400 hover:text-gray-600">
-                          <X size={14} />
-                        </button>
-                      </span>
-                      <span>-€{discountAmount.toFixed(2)}</span>
-                    </div>
-                  )}
-                  <div className="flex justify-between text-lg font-normal pt-2 border-t">
-                    <span>TOTAAL</span>
-                    <span>€{total.toFixed(2)}</span>
-                  </div>
-                </div>
-
-                {/* Checkout Button */}
-                <button className="w-full bg-[#A95A21] text-white py-4 rounded-lg hover:bg-orange-700 transition-colors font-normal tracking-wide">
-                  VERDER MET BESTELLEN
-                </button>
-
-                {/* Payment Icons */}
-                <div className="flex justify-center gap-2 pt-2">
-                  <div className="w-8 h-6 bg-gray-100 rounded flex items-center justify-center text-[10px]">iD</div>
-                  <div className="w-8 h-6 bg-gray-100 rounded flex items-center justify-center text-[10px]">BC</div>
-                  <div className="w-8 h-6 bg-pink-100 rounded flex items-center justify-center text-[10px]">K</div>
-                  <div className="w-8 h-6 bg-gray-100 rounded flex items-center justify-center text-[10px]">M</div>
-                  <div className="w-8 h-6 bg-blue-100 rounded flex items-center justify-center text-[10px]">M</div>
-                  <div className="w-8 h-6 bg-gray-100 rounded flex items-center justify-center text-[10px]">PP</div>
-                  <div className="w-8 h-6 bg-blue-600 rounded flex items-center justify-center text-[10px] text-white">V</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-      )}
+      {isCartOpen && <ShoppingCard setIsCartOpen={setIsCartOpen} />}
     </div>
   );
 }
 
-function NavLink({ text, hasDropdown, href }) {
+function NavLink({ text, hasDropdown, href, onClick }) {
   const content = (
-    <span
-      className="flex items-center gap-1 hover:text-gray-600 transition-colors"
-      style={{
-        fontSize: '14px',
-        lineHeight: '100%',
-        letterSpacing: '0.03em',
-        textTransform: 'uppercase',
-        fontWeight: 400
-      }}
-    >
+    <span className="flex items-center gap-1 hover:text-gray-600 transition-colors cursor-pointer text-[14px] uppercase tracking-wider">
       {text}
       {hasDropdown && <ChevronDown size={16} />}
     </span>
   );
 
-  if (href) {
+  // If there's an onClick handler, use a button
+  if (onClick) {
     return (
-      <Link href={href}>
+      <button onClick={onClick} className="flex items-center gap-1">
         {content}
-      </Link>
+      </button>
     );
   }
 
-  return (
-    <button 
-      className="flex items-center gap-1 hover:text-gray-600 transition-colors"
-      style={{
-        fontSize: '14px',
-        lineHeight: '100%',
-        letterSpacing: '0.03em',
-        textTransform: 'uppercase',
-        fontWeight: 400
-      }}
-    >
-      {text}
-      {hasDropdown && <ChevronDown size={16} />}
-    </button>
-  );
+  // If there's an href, use Link
+  if (href) {
+    return <Link href={href}>{content}</Link>;
+  }
+
+  // Otherwise just return the content
+  return content;
 }
 
-function MobileNavLink({ text, hasDropdown, href }) {
+function MobileNavLink({ text, href, onClick }) {
+  const handleClick = () => {
+    if (onClick) onClick();
+  };
+
   const content = (
-    <span 
-      className="flex items-center justify-between text-left hover:text-gray-600 transition-colors"
-      style={{
-        fontSize: '14px',
-        lineHeight: '100%',
-        letterSpacing: '0.03em',
-        textTransform: 'uppercase',
-        fontWeight: 400
-      }}
-    >
+    <span className="flex items-center justify-between text-left hover:text-[#A95A21] transition-colors w-full py-2 text-[48px]">
       {text}
-      {hasDropdown && <ChevronDown size={16} />}
+      <ChevronRight size={20} />
     </span>
   );
 
   if (href) {
     return (
-      <Link href={href}>
+      <Link href={href} onClick={handleClick}>
         {content}
       </Link>
     );
   }
 
   return (
-    <button 
-      className="flex items-center justify-between text-left hover:text-gray-600 transition-colors"
-      style={{
-        fontSize: '14px',
-        lineHeight: '100%',
-        letterSpacing: '0.03em',
-        textTransform: 'uppercase',
-        fontWeight: 400
-      }}
-    >
-      {text}
-      {hasDropdown && <ChevronDown size={16} />}
+    <button onClick={handleClick} className="w-full">
+      {content}
     </button>
   );
 }

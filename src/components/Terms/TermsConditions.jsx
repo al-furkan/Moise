@@ -53,28 +53,25 @@ export default function TermsConditions() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f5f1ed] to-white">
+    <div className="min-h-auto  from-[#f5f1ed] to-white">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-5xl mx-auto px-6 py-12 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-4">
+      <div className="bg-white">
+        <div className="max-w-5xl mx-auto px-6 py-4 text-center mt-10">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900">
             Algemene voorwaarden
           </h1>
-          <p className="text-gray-600 text-lg">
-            Laatst bijgewerkt: Oktober 2024
-          </p>
         </div>
       </div>
 
       {/* Content */}
-      <div className="max-w-5xl mx-auto px-6 py-16">
+      <div className="max-w-5xl mx-auto px-6 py-4 bg-white">
         <div className="space-y-8">
           {sections.map((section) => {
             const IconComponent = section.icon;
             return (
               <div
                 key={section.number}
-                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+                className=" p-8 hover:shadow-md transition-shadow duration-300"
               >
                 <div className="flex items-start gap-4">
                   {/* Icon */}
@@ -84,10 +81,10 @@ export default function TermsConditions() {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                    <h2 className="text-xl font-medium text-gray-900 mb-2">
                       {section.number}. {section.title}
                     </h2>
-                    <p className="text-gray-700 leading-relaxed text-lg">
+                    <p className="text-gray-700 leading-relaxed text-base">
                       {section.content}
                     </p>
                   </div>
@@ -97,16 +94,6 @@ export default function TermsConditions() {
           })}
         </div>
 
-        {/* Footer Notice */}
-        <div className="mt-16 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 text-center border border-gray-200">
-          <p className="text-gray-700 text-lg leading-relaxed">
-            Heb je vragen over onze algemene voorwaarden?
-            <br />
-            <a href="#" className="text-gray-900 font-semibold hover:underline">
-              Neem contact met ons op
-            </a>
-          </p>
-        </div>
       </div>
     </div>
   );

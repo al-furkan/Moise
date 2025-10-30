@@ -36,7 +36,7 @@ En u mag het gemak van een luierabonnement niet onderschatten (vooral omdat somm
   };
 
   return (
-    <div className="min-h-screen bg-[#F0EBE8] py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-auto bg-[#F0EBE8] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1440px] mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left side - Title */}
@@ -51,7 +51,7 @@ En u mag het gemak van een luierabonnement niet onderschatten (vooral omdat somm
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                className=" shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 <button
                   onClick={() => toggleAccordion(index)}

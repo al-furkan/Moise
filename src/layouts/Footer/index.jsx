@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Logo */}
           <div className="flex items-center gap-2 mb-8">
              <div className="w-40 h-8 text-2xl tracking-wider">
-                 <img src="/logo/logo.png" alt="" className='w-full h-full'/>
+             <Link href="/">  <img src="/logo/logo.png" alt="" className='w-full h-full'/> </Link>   
              </div>
           </div>
 
@@ -18,17 +18,19 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-8 mb-8">
             {/* Left Column */}
             <div>
-              <h3 className="font-semibold mb-4 text-sm" style={{ letterSpacing: '0.03em' }}>
-                Over
-              </h3>
               <ul className="space-y-3">
+                  <li>
+                  <Link href="/aboutus" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
+                    Over
+                  </Link>
+                </li>
                 <li>
                   <Link href="/aboutus" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
                     Waarom Moise?
                   </Link>
                 </li>
                 <li>
-                  <Link href="/products" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
+                  <Link href="/productdetails" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
                     Onze luiers
                   </Link>
                 </li>
@@ -37,17 +39,20 @@ export default function Footer() {
 
             {/* Right Column */}
             <div>
-              <h3 className="font-semibold mb-4 text-sm" style={{ letterSpacing: '0.03em' }}>
-                FAQ
-              </h3>
+              
               <ul className="space-y-3">
+                 <li>
+                  <Link href="/faq" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
+                    FAQ
+                  </Link>
+                </li>
                 <li>
                   <Link href="/contact" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
                     Contact
                   </Link>
                 </li>
                 <li>
-                  <Link href="/Terms" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
+                  <Link href="/terms" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
                     Algemene voorwaarden
                   </Link>
                 </li>
@@ -69,24 +74,28 @@ export default function Footer() {
             {/* Logo Section */}
              <div className="flex items-center gap-2 mb-8">
              <div className="w-40 h-8 text-2xl tracking-wider">
-                 <img src="/logo/logo.png" alt="" className='w-full h-full'/>
+                  <Link href="/">  <img src="/logo/logo.png" alt="" className='w-full h-full'/> </Link>   
              </div>
            </div>
 
            <div className='grid grid-cols-3 gap-8 mb-8'>
              {/* Over Section */}
             <div className="col-span-1">
-              <h3 className="font-semibold mb-4 text-sm" style={{ letterSpacing: '0.03em' }}>
-                Over
-              </h3>
               <ul className="space-y-3">
+
+                <li>
+                  <Link href="/aboutus" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
+                    Over
+                  </Link>
+                </li>
+
                 <li>
                   <Link href="/aboutus" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
                     Waarom Moise?
                   </Link>
                 </li>
                 <li>
-                  <Link href="/products" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
+                  <Link href="/productdetails" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
                     Onze luiers
                   </Link>
                 </li>
@@ -95,17 +104,20 @@ export default function Footer() {
 
             {/* FAQ Section */}
             <div className="col-span-1">
-              <h3 className="font-semibold mb-4 text-sm" style={{ letterSpacing: '0.03em' }}>
-                FAQ
-              </h3>
+              
               <ul className="space-y-3">
+                 <li>
+                  <Link href="/faq" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
+                    FAQ
+                  </Link>
+                </li>
                 <li>
                   <Link href="/contact" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
                     Contact
                   </Link>
                 </li>
                 <li>
-                  <Link href="/Terms" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
+                  <Link href="/terms" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
                     Algemene voorwaarden
                   </Link>
                 </li>

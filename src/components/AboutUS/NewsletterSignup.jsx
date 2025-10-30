@@ -23,7 +23,7 @@ export default function NewsletterSignup() {
   };
 
   return (
-    <section className="relative min-h-auto flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-auto flex items-center justify-center overflow-hidden mt-10">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/50 z-10"></div>

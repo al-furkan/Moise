@@ -169,7 +169,8 @@ const ReviewsComponent = () => {
           </div>
 
           {/* Reviews Grid */}
-          <div className="grid grid-cols-2 gap-16 mt-12">
+          <div className="grid grid-cols-4  gap-4 justify-end items-end mt-12">
+            <div></div>  <div></div>
             {/* Left Column - Reviewer Names */}
             <div className="space-y-8">
               {reviews.map((review, index) => (

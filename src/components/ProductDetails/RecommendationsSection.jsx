@@ -22,14 +22,14 @@ const RecommendationsSection = () => {
       id: 1,
       name: "Luierspray",
       price: "€14,95",
-      image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=200&h=200&fit=crop",
+      image: "/Products/p1.png",
     },
     {
       id: 2,
       name: "Moise Luierdoekjes",
       subtitle: "54 doekjes",
       price: "€8,95",
-      image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=200&h=200&fit=crop",
+      image: "/Products/p3.png",
     },
     {
       id: 3,
@@ -88,7 +88,7 @@ const RecommendationsSection = () => {
   const gap = getGap();
 
   return (
-    <section className="max-w-[420px] sm:max-w-[600px] mx-auto mt-6 sm:mt-8 lg:mt-12 bg-[#F5F3F0] rounded-xl sm:rounded-2xl p-3 sm:p-5 lg:p-6">
+    <section className="max-w-[410px] sm:max-w-[600px] mx-auto mt-6 sm:mt-8 lg:mt-12 bg-[#F5F3F0] rounded-xl sm:rounded-2xl p-3 sm:p-5 lg:p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-4 sm:mb-5 lg:mb-6">
         <h2 className="text-base sm:text-lg lg:text-2xl font-bold text-gray-900">

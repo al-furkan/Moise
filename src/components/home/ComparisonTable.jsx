@@ -97,7 +97,7 @@ export default function ComparisonTable() {
                 {brands.map((brand, idx) => (
                   <th key={idx} className={`py-6 px-4 text-center ${brand.highlight ? 'bg-white' : ''}`}>
                     <div className={`flex justify-center items-center ${brand.highlight ? 'font-serif text-2xl text-amber-900' : ''}`}>
-                      <img src={brand.logo} alt={brand.name}/>
+                      <img src={brand.logo} alt={brand.name} className='max-w-44 h-8'/>
                     </div>
                   </th>
                 ))}

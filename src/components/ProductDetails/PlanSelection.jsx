@@ -5,7 +5,7 @@ const PlanSelection = () => {
   return (
      <div>
               <p className="font-semibold text-sm lg:text-base mb-3">Flexibel bestellen met Moise</p>
-              <div className="grid sm:grid-cols-2 gap-3 lg:gap-4">
+              <div className="grid grid-cols-2 gap-3 lg:gap-4">
                 {/* Subscription Plan */}
                 <div
                   onClick={() => setSelectedPlan('abonnement')}
